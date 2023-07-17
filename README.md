@@ -1,2 +1,2 @@
 # humans_thoughts
-What human used to think of us back then.
+What humans used to think of us back then.
