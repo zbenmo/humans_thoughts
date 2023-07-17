@@ -21,11 +21,16 @@ function gcd(a, b)
 
 Algorithms can help us solve tasks manually (as was done by Euclid and his colleagues), yet with **programmable** computers they are just a match-made-in-heaven.
 
+<figure>
+    <img src="images/hp85.jpg" title="Hewlett Packard 85 Programmable Calculator/Computer"/>
+    <figcaption>HP 85 Programmable Calculator/Computer</figcaption>
+</figure>
+
 Sometimes we resort to **heuristics**, when we don’t know, or just can’t solve a program in a definite manner. For example, to create a program that plays Chess against us, we may need to provide heuristic for the “goodness” of a board state, as we cannot simply let the computer go all the way to a win/loss/draw for all possible scenarios. We can write the software to try, but it will almost never return in any reasonable time. We can push the limit with faster computers and smarter algorithms (to “prune” search space when possible), but at the end we must let the computer decide based on our provided heuristic. Heuristic helps us optimize the performance of the system, to the best of our knowledge, admitting that we cannot prove if we have the optimal solution, and that there may well be a better solution. But a lot of times those systems and very helpful and since we don’t have something better, we are very happy with them.
 
-<figure>
-    <img src="images/chess_search.png" title="Searching in a game tree and then deciding based on heuristics"/>
-    <figcaption>Searching in a game tree and then deciding based on heuristics https://chrisbutner.github.io/ChessCoach/high-level-explanation.html</figcaption>
+<figure style="width:80%">
+    <img src="images/chess_search.png" title="Searching in a game tree for a few levels deep, and then deciding based on heuristics"/>
+    <figcaption>Searching in a game tree for a few levels deep, and then deciding based on heuristics https://chrisbutner.github.io/ChessCoach/high-level-explanation.html</figcaption>
 </figure>
 
 While we’ve made tremendous progress,  
@@ -36,14 +41,16 @@ some tasks remain hard.
     <figcaption>Tasks, xkcd</figcaption>
 </figure>
 
-Machine Learning to the rescue. Instead of attempting to come-up with a good algorithm, or even heuristics, we’ll resort to…. **Optimization**.
+Machine Learning to the rescue. Instead of attempting to come-up with a good algorithm, or even heuristics, we’ll resort to…. **optimization**.
 
-Optimization? What are we optimizing, and how will it help us in achieving our goals?
+Optimization? We are using optimizations of various types to try solve hard problems, or to get to a good-enough solutions, but what are we optimizing here, and how will it help us in achieving our goals?
+
 For example, we can define a distance between the current answer that the system produces, and the desired answer. We can then adjust our system to get closer. By minimizing the distance, hopefully we’ve achieved a system that can fulfil the task. In other words we build a model of the world, and of the task solving, by using optimization.
-Until our system (model) manage to get close enough to what we show it, we say that there is a high bias (towards some “wrong” idea, that the system have, about what it needs to do).
-When the system shows low bias, we still need to verify it can generalize to instances of the task that we have not shown the model before. We need to verify that indeed the machine “learned” the right task and found a good logic to address it. We need to check that the variance in the quality of the system’s performance on the unseen cases, is not significant higher from the variance that we’ve seen during the “training”. For example, if we train on the following four data sets (Anscombe's quartet), and we end-up with four models with respect to the four sets of examples. Only one of those models (a line in this example) is apparently useful.
 
-<figure>
+Until our system (model) manages to get close enough to what we show it, we say that there is a high **bias** (towards some “wrong” idea, that the system have, about what it needs to do).
+When the system shows low bias, we still need to verify it can **generalize** to instances of the task that we have not shown the model before. We need to verify that indeed the machine “learned” the right task and found a good logic to address it. We need to check that the **variance** in the quality of the system’s performance on the unseen cases, is not significant higher from the variance that we’ve seen during the “training”. For example, if we train on the following four data sets (Anscombe's quartet), and we end-up with four models with respect to the four sets of examples (the models are the blue lines). Only one of those models is apparently "correct" (or useful).
+
+<figure style="width:80%">
     <img src="images/Anscombes_quartet.png" title="Anscombe's quartet"/>
     <figcaption>Anscombe's quartet</figcaption>
 </figure>
@@ -62,9 +69,15 @@ So a computer vision task, to classify if a photo is of a bird or not. Done with
 ### Unsupervised Learning 
 
 Given that we have many photos, let’s try to find commonalities and grouping / clustering. Let’s try to automatically “summarize” what are people taking images of. We want to have as many groups as needed, but not too many. Each group should indeed be coherent and meaningful. Can we find the most representative photo of each of those groups? (Think how you would have approach that challenge). Are there photos that are definitely not from any of the above groups? (Again, what can be an approach to answer that question?). Can we automatically generate “new” artificial photos that belongs to a specific group (generative AI)?
+
 Note, we have samples, yet we don’t label the samples. We want to optimize some internal measure like “not too many groups”, and at the same time “each group should be coherent and meaningful”. The task is vaguely defined by above desired optimization goals, but what we’ll find? Is yet to see.
-Also note, that by associating each photo to a group, in a way we have reduced the dimensionality of the (multiple) pixels into a single identification (the ID of the group to which the photo belongs). Sometimes we do dimensionality reduction for the sake of visually plotting a point in (say cartesian 2-d plane) per photo, as to examine if any interesting patterns emerge (some points form a cluster or so).
-   
+Also note, that by associating each photo to a group, in a way we have reduced the dimensionality of the (multiple) pixels into a single identification (the ID of the group to which the photo belongs). Sometimes we do dimensionality reduction for the sake of visually plotting a point in (say cartesian 2-D plane) per photo, as to examine if any interesting patterns emerge (some points form a cluster or so).
+
+<figure style="width:60%">
+    <img src="images/apparent_clusters.png" title="apparent clusters"/>
+    <figcaption>apparent clusters</figcaption>
+</figure>
+
 ### Reinforcement Learning
 
 Here the task is to control, for example a robot, or a self-driving car. What does it mean to control? It means  to act and react to what happens in the environment, in a continues manner (or a sequence of discrete time steps). A “success” is judged by us when we “enjoy” watching the emerging behavior of the agent in the environment. For example, does the robot clean satisfactorily the floor, while avoid getting stuck midway, require our intervention, as of out-of-power, or so.
