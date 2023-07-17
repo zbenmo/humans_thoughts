@@ -15,7 +15,7 @@
     
     
       
-        <title>humans_thougths</title>
+        <title>humans thougths</title>
       
     
     
@@ -79,7 +79,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="humans_thougths" class="md-header__button md-logo" aria-label="humans_thougths" data-md-component="logo">
+    <a href="." title="humans thougths" class="md-header__button md-logo" aria-label="humans thougths" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 22H5v-2h14v2M13 2c-1.25 0-2.42.62-3.11 1.66L7 8l2 2 2.06-1.37c.44-.31 1.08-.19 1.39.27.02.03.05.06.05.1.3.59.19 1.3-.28 1.77l-4.8 4.8c-.55.56-.55 1.46.01 2.01.26.26.62.42.99.42H17V6a4 4 0 0 0-4-4Z"/></svg>
@@ -92,7 +92,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            humans_thougths
+            humans thougths
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -167,13 +167,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="humans_thougths" class="md-nav__button md-logo" aria-label="humans_thougths" data-md-component="logo">
+    <a href="." title="humans thougths" class="md-nav__button md-logo" aria-label="humans thougths" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 22H5v-2h14v2M13 2c-1.25 0-2.42.62-3.11 1.66L7 8l2 2 2.06-1.37c.44-.31 1.08-.19 1.39.27.02.03.05.06.05.1.3.59.19 1.3-.28 1.77l-4.8 4.8c-.55.56-.55 1.46.01 2.01.26.26.62.42.99.42H17V6a4 4 0 0 0-4-4Z"/></svg>
 
     </a>
-    humans_thougths
+    humans thougths
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -367,10 +367,15 @@
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    return a
 </span></code></pre></div>
 <p>Algorithms can help us solve tasks manually (as was done by Euclid and his colleagues), yet with <strong>programmable</strong> computers they are just a match-made-in-heaven.</p>
-<p>Sometimes we resort to <strong>heuristics</strong>, when we don’t know, or just can’t solve a program in a definite manner. For example, to create a program that plays Chess against us, we may need to provide heuristic for the “goodness” of a board state, as we cannot simply let the computer go all the way to a win/loss/draw for all possible scenarios. We can write the software to try, but it will almost never return in any reasonable time. We can push the limit with faster computers and smarter algorithms (to “prune” search space when possible), but at the end we must let the computer decide based on our provided heuristic. Heuristic helps us optimize the performance of the system, to the best of our knowledge, admitting that we cannot prove if we have the optimal solution, and that there may well be a better solution. But a lot of times those systems and very helpful and since we don’t have something better, we are very happy with them.</p>
 <figure>
-    <img src="images/chess_search.png" title="Searching in a game tree and then deciding based on heuristics"/>
-    <figcaption>Searching in a game tree and then deciding based on heuristics https://chrisbutner.github.io/ChessCoach/high-level-explanation.html</figcaption>
+    <img src="images/hp85.jpg" title="Hewlett Packard 85 Programmable Calculator/Computer"/>
+    <figcaption>HP 85 Programmable Calculator/Computer</figcaption>
+</figure>
+
+<p>Sometimes we resort to <strong>heuristics</strong>, when we don’t know, or just can’t solve a program in a definite manner. For example, to create a program that plays Chess against us, we may need to provide heuristic for the “goodness” of a board state, as we cannot simply let the computer go all the way to a win/loss/draw for all possible scenarios. We can write the software to try, but it will almost never return in any reasonable time. We can push the limit with faster computers and smarter algorithms (to “prune” search space when possible), but at the end we must let the computer decide based on our provided heuristic. Heuristic helps us optimize the performance of the system, to the best of our knowledge, admitting that we cannot prove if we have the optimal solution, and that there may well be a better solution. But a lot of times those systems and very helpful and since we don’t have something better, we are very happy with them.</p>
+<figure style="width:80%">
+    <img src="images/chess_search.png" title="Searching in a game tree for a few levels deep, and then deciding based on heuristics"/>
+    <figcaption>Searching in a game tree for a few levels deep, and then deciding based on heuristics https://chrisbutner.github.io/ChessCoach/high-level-explanation.html</figcaption>
 </figure>
 
 <p>While we’ve made tremendous progress,<br />
@@ -380,12 +385,12 @@ some tasks remain hard.</p>
     <figcaption>Tasks, xkcd</figcaption>
 </figure>
 
-<p>Machine Learning to the rescue. Instead of attempting to come-up with a good algorithm, or even heuristics, we’ll resort to…. <strong>Optimization</strong>.</p>
-<p>Optimization? What are we optimizing, and how will it help us in achieving our goals?
-For example, we can define a distance between the current answer that the system produces, and the desired answer. We can then adjust our system to get closer. By minimizing the distance, hopefully we’ve achieved a system that can fulfil the task. In other words we build a model of the world, and of the task solving, by using optimization.
-Until our system (model) manage to get close enough to what we show it, we say that there is a high bias (towards some “wrong” idea, that the system have, about what it needs to do).
-When the system shows low bias, we still need to verify it can generalize to instances of the task that we have not shown the model before. We need to verify that indeed the machine “learned” the right task and found a good logic to address it. We need to check that the variance in the quality of the system’s performance on the unseen cases, is not significant higher from the variance that we’ve seen during the “training”. For example, if we train on the following four data sets (Anscombe's quartet), and we end-up with four models with respect to the four sets of examples. Only one of those models (a line in this example) is apparently useful.</p>
-<figure>
+<p>Machine Learning to the rescue. Instead of attempting to come-up with a good algorithm, or even heuristics, we’ll resort to…. <strong>optimization</strong>.</p>
+<p>Optimization? We are using optimizations of various types to try solve hard problems, or to get to a good-enough solutions, but what are we optimizing here, and how will it help us in achieving our goals?</p>
+<p>For example, we can define a distance between the current answer that the system produces, and the desired answer. We can then adjust our system to get closer. By minimizing the distance, hopefully we’ve achieved a system that can fulfil the task. In other words we build a model of the world, and of the task solving, by using optimization.</p>
+<p>Until our system (model) manages to get close enough to what we show it, we say that there is a high <strong>bias</strong> (towards some “wrong” idea, that the system have, about what it needs to do).
+When the system shows low bias, we still need to verify it can <strong>generalize</strong> to instances of the task that we have not shown the model before. We need to verify that indeed the machine “learned” the right task and found a good logic to address it. We need to check that the <strong>variance</strong> in the quality of the system’s performance on the unseen cases, is not significant higher from the variance that we’ve seen during the “training”. For example, if we train on the following four data sets (Anscombe's quartet), and we end-up with four models with respect to the four sets of examples (the models are the blue lines). Only one of those models is apparently "correct" (or useful).</p>
+<figure style="width:80%">
     <img src="images/Anscombes_quartet.png" title="Anscombe's quartet"/>
     <figcaption>Anscombe's quartet</figcaption>
 </figure>
@@ -399,9 +404,14 @@ This will be supervised learning. In this example it shall classify “Yes it is
 Instead of assembling rules and algorithms, we provide curated data. The generic algorithm of learning from the data was already developed by researchers and for example by the contributors to scikit-learn.
 So a computer vision task, to classify if a photo is of a bird or not. Done with supervised learning. We give samples accompanied with labels (Yes/No). If the resulting model can later achieve the task to label automatically photos (new ones in particular), then we have a system that can “..CHECK WHETHER THE PHOTO IS OF A BIRD.”</p>
 <h3 id="unsupervised-learning">Unsupervised Learning</h3>
-<p>Given that we have many photos, let’s try to find commonalities and grouping / clustering. Let’s try to automatically “summarize” what are people taking images of. We want to have as many groups as needed, but not too many. Each group should indeed be coherent and meaningful. Can we find the most representative photo of each of those groups? (Think how you would have approach that challenge). Are there photos that are definitely not from any of the above groups? (Again, what can be an approach to answer that question?). Can we automatically generate “new” artificial photos that belongs to a specific group (generative AI)?
-Note, we have samples, yet we don’t label the samples. We want to optimize some internal measure like “not too many groups”, and at the same time “each group should be coherent and meaningful”. The task is vaguely defined by above desired optimization goals, but what we’ll find? Is yet to see.
-Also note, that by associating each photo to a group, in a way we have reduced the dimensionality of the (multiple) pixels into a single identification (the ID of the group to which the photo belongs). Sometimes we do dimensionality reduction for the sake of visually plotting a point in (say cartesian 2-d plane) per photo, as to examine if any interesting patterns emerge (some points form a cluster or so).</p>
+<p>Given that we have many photos, let’s try to find commonalities and grouping / clustering. Let’s try to automatically “summarize” what are people taking images of. We want to have as many groups as needed, but not too many. Each group should indeed be coherent and meaningful. Can we find the most representative photo of each of those groups? (Think how you would have approach that challenge). Are there photos that are definitely not from any of the above groups? (Again, what can be an approach to answer that question?). Can we automatically generate “new” artificial photos that belongs to a specific group (generative AI)?</p>
+<p>Note, we have samples, yet we don’t label the samples. We want to optimize some internal measure like “not too many groups”, and at the same time “each group should be coherent and meaningful”. The task is vaguely defined by above desired optimization goals, but what we’ll find? Is yet to see.
+Also note, that by associating each photo to a group, in a way we have reduced the dimensionality of the (multiple) pixels into a single identification (the ID of the group to which the photo belongs). Sometimes we do dimensionality reduction for the sake of visually plotting a point in (say cartesian 2-D plane) per photo, as to examine if any interesting patterns emerge (some points form a cluster or so).</p>
+<figure style="width:60%">
+    <img src="images/apparent_clusters.png" title="apparent clusters"/>
+    <figcaption>apparent clusters</figcaption>
+</figure>
+
 <h3 id="reinforcement-learning">Reinforcement Learning</h3>
 <p>Here the task is to control, for example a robot, or a self-driving car. What does it mean to control? It means  to act and react to what happens in the environment, in a continues manner (or a sequence of discrete time steps). A “success” is judged by us when we “enjoy” watching the emerging behavior of the agent in the environment. For example, does the robot clean satisfactorily the floor, while avoid getting stuck midway, require our intervention, as of out-of-power, or so.
 Again it is somewhat challenging to explain in software and rules exactly what we want there to happen, and again we’re looking for a way to achieve that with optimization instead. What shall we optimize, what is the “distance” to the target? What shall be the training procedure?
