@@ -143,6 +143,13 @@ For example, we can encourage the agent to survive as much as possible by reward
 Above still does not answer what shall make the agent smarter and smarter, till it does what we would like it to do. The missing piece in the puzzle is that the agent shall interact with the environment multiple times, try different actions in different states, and adjust its policy towards a policy that brings it to collect the most reward.
 By optimizing the policy of the agent to one that results in hefty reward, we hope to achieve systems that can play Chess against us, drive us back and forward, terraform Mars, or act on our behalf as high-frequency traders.
 
+In the visualization below (t-SNE dimensionality reduction of the activation of the last layer in the deep-neural-network maintained by the agent). We can see how the agent perceives various states (screen captures), their similarities (or dissimilarities), and the value according to the agent. Indeed we see that there are clusters of states that have similar perceived value.  
+
+<figure>
+    <img src="images/Atart-with-DQN-tSNE-states-color-is-value.png" title="t-SNE visualization of states in Space Invaders. Color refers to value that the agent associates with the state"/>
+    <figcaption>A point is a state (screen capture) and its color is the value that the agent associates with this state. https://www.deepmind.com/publications/human-level-control-through-deep-reinforcement-learning</figcaption>
+</figure>
+
 ## A few observation of machine learning and the new ways to build systems.
 
 - Systems that are more than a toy, will most likely contain multiple components, some developed with traditional software / algorithms, some are the results of ML training of this or another form.
