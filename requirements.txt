@@ -1,2 +1,13 @@
 mkdocs
 mkdocs-material
+
+jupyterlab
+pandas
+numpy
+scikit-learn
+matplotlib
+seaborn
+graphviz
+
+optuna
+ipywidgets
