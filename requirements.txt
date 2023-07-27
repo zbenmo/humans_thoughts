@@ -20,3 +20,6 @@ bulk
 
 fastapi
 uvicorn
+
+sentence-transformers
+
