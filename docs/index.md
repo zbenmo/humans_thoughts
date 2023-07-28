@@ -44,6 +44,7 @@ some tasks remain hard.</span>
 **Machine Learning** to the rescue. Instead of attempting to come-up with a good algorithm, or even heuristics, we’ll resort to…. **optimization**.
 
 Optimization? We are using optimizations of various types to solve challenging problems, or to get to a good-enough solutions. But what are we optimizing here, and how shall it help us in achieving our goals?
+
 For example, we can define a distance between the current answer that the system produces, and the desired answer. We can then adjust our system to get closer. By minimizing the distance, hopefully we’ve achieved a system that can fulfil the task. In other words we build a model of the world, and of solving the task, by using optimization.
 
 Until our system (model) manages to get close enough to what we show it, we say that there is a high **bias** (towards some “wrong” idea, that the system have, about what it needs to do).
@@ -72,6 +73,8 @@ So this is a computer vision task, to classify if a photo is of a bird or not, a
 </figure>
 
 In addition to classification of images, there are a lot of other tasks that can be addressed with supervised learning (with texts, time-series, sound, tabular data, graphs, etc.). **Regression** for example is a task in which the system is expected to predict a value. Identifing where in an image there is a cat, for example, can be achieved with a ML multi-regression model that predicts the top/left and bottom/right of the bounding box in terms of pixel offsets. Note that we need to annotate first the photos with the bounding rectangles surrounding cats, so that the learning algorithm can train a model on our examples.
+
+When you need to annotate images or other items, look for (or develop) a good annotation tool, that shall make the potentialy Sisyphean task as fun as possible. You can also think of creative ways to gather those annotations and/or relevant dataset to train on.
 
 <figure>
     <img src="images/330px-Detected-with-YOLO--Schreibtisch-mit-Objekten.jpg"
