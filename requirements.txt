@@ -23,3 +23,5 @@ uvicorn
 
 sentence-transformers
 
+keras
+tensorflow
