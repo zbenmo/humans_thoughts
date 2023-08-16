@@ -45,10 +45,14 @@ some tasks remain hard.</span>
 
 Optimization? We are using optimizations of various types to solve challenging problems, or to get to a good-enough solutions. But what are we optimizing here, and how shall it help us in achieving our goals?
 
-For example, we can define a distance between the current answer that the system produces, and the desired answer. We can then adjust our system to get closer. By minimizing the distance, hopefully we’ve achieved a system that can fulfil the task. In other words we build a model of the world, and of solving the task, by using optimization.
+Let's assume we have examples of the right answer / behavior to given instances of the challenging task that we want to automate. The algorithm can "learn by heart" all those examples, and then when a new instance of the task arrives, our logic shall be to find the closest example, or **nearest neighbor**, and to use the same solution / actions, as was done there (in the most similar example).
 
-Until our system (model) manages to get close enough to what we show it, we say that there is a high **bias** (towards some “wrong” idea, that the system have, about what it needs to do).
-When the system shows low bias, we still need to verify it can **generalize** to instances of the task that we have not shown the model before. We need to verify that indeed the machine “learned” the right task and found a good logic to address it. We need to check that the **variance** in the quality of the system’s performance on the unseen cases, is not significant higher from the variance that we’ve seen during the “training”. For example, if we train on the following four data sets (Anscombe's quartet), and we end-up with four models with respect to the four sets of examples (the models are the blue lines). Only one of those models is apparently "correct" (or useful).
+Another approach could be to, manually or automatically, build a **model**. We can define a distance between the current answer that the system produces, and the desired answer. We can then adjust our system to get closer to the desired answer. Often this is done indeed iteratively. 
+By minimizing the distance, hopefully we’ve achieved a system that can fulfil the task, or in other words we build a model of the world, and of solving the task, by using optimization.
+
+Until our system (model) manages to get close enough to what we show it, we say that there is a high **bias** (towards some “wrong” idea, that the system have, about what it needs to do). Imagine that we show examples where some of the answers are negative. If the model "believes" that all answers must be positive. The model may "refuse" to get close enough to the given examples with negative answers. For the nearest neighbor there might be a bias if the "model" simply cannot remember all the examples that we give it (does not have enough capacity).
+
+When the model's bias seems to be low enough, we still need to verify that it, the model, can **generalize** to instances of the task that we have not shown it before. We need to verify that indeed the machine “learned” the right task and found a good logic to address it. We need to check that the **variance** in the quality of the system’s performance on the unseen cases, is not significant higher from the variance that we’ve seen during the “training”. For example, if we train on the following four data sets (Anscombe's quartet), and we end-up with four models with respect to the four sets of examples (the models are the blue lines). Only one of those models is apparently "correct" (or useful).
 
 <figure style="width:80%">
     <img src="images/Anscombes_quartet.png" title="Anscombe's quartet"/>
@@ -72,7 +76,7 @@ So this is a computer vision task, to classify if a photo is of a bird or not, a
     https://towardsdatascience.com/the-future-with-reinforcement-learning-877a17187d54</figcaption>
 </figure>
 
-In addition to classification of images, there are a lot of other tasks that can be addressed with supervised learning (with texts, time-series, sound, tabular data, graphs, etc.). **Regression** for example is a task in which the system is expected to predict a value. Identifing where in an image there is a cat, for example, can be achieved with a ML multi-regression model that predicts the top/left and bottom/right of the bounding box in terms of pixel offsets. Note that we need to annotate first the photos with the bounding rectangles surrounding cats, so that the learning algorithm can train a model on our examples.
+In addition to classification of images, there are a lot of other tasks that can be addressed with supervised learning (with texts, time-series, sound, tabular data, graphs, etc.). **Regression** for example is a task in which the system is expected to predict a value. Identifing where in an image there is a cat, for example, can be achieved with a ML multivariate-regression model that predicts the top/left and bottom/right of the bounding box in terms of pixel offsets. Note that we need to annotate first the photos with the bounding rectangles surrounding cats, so that the learning algorithm can train a model on our examples.
 
 When you need to annotate images or other items, look for (or develop) a good annotation tool, that shall make the potentialy Sisyphean task as fun as possible. You can also think of creative ways to gather those annotations and/or relevant dataset to train on.
 
@@ -86,7 +90,7 @@ When you need to annotate images or other items, look for (or develop) a good an
 
 Given that we have many photos, let’s try to find commonalities and grouping / clustering. Let’s try to automatically “summarize” what are people taking images of. We want to have as many groups as needed, but not too many. Each group should indeed be coherent and meaningful. Can we find the most representative photo of each of those groups? (Think how you would have approach that challenge). Are there photos that are definitely not from any of the above groups? (Again, what can be an approach to answer that question?). Can we automatically generate “new” artificial photos that belong to a specific group (generative AI)?
 
-Note, we have samples, yet we don’t label the samples. We want to optimize some internal measure like “not too many groups”, and at the same time “each group should be coherent and meaningful”. The task is vaguely defined by above desired optimization goals, but what we’ll find? Is yet to see.
+Note, we have examples, yet we don’t label the examples. We want to optimize some internal measure like “not too many groups”, and at the same time “each group should be coherent and meaningful”. The task is vaguely defined by above desired optimization goals, but what we’ll find? Is yet to see.
 Also note, that by associating each photo to a group, in a way we have reduced the dimensionality of the (multiple) pixels into a single identification (the ID of the group to which the photo belongs). Sometimes we do dimensionality reduction for the sake of visually plotting a point in (say cartesian 2-D plane) per photo, as to examine if any interesting patterns emerge (some points form a cluster or so).
 
 <figure style="width:60%">
@@ -97,10 +101,11 @@ Also note, that by associating each photo to a group, in a way we have reduced t
 The big advantage of unsupervised learning over supervised learning is that we remove the dependancy on humans labelling the data points and doing that consistently. Instead we search for intrinsic labels. Pieces of information that exist already in the data.
 Because we are not relying on annotations, we can work on significantly more data points.
 
-A potential usage of unsupervied learning, can be to learn a language model, from a big body of texts in the relevant language.
+A potential usage of unsupervied learning, can be to learn a mapping between texts and a fix-sized vectors, or **embeddings**, from a big body of texts in the relevant language.
 For example, given a (variable length) text, we can produce a fixed-sized vector of floats.
 The vector should be big yet not so big that it can just let the information "pass-through". It should be some sort of summarization of the essence of the text.
 This is what the unsupervised learning shall achieve in above setting.  
+
 Why is it good? If the mapping is "smart", it can be used as a feature vector for a supervised **Natural Language Processing** (NLP) machine-learning task down the line. The supervised learning can then be made with significant smaller (labelled) data set.  
 One way to optimize for good and "smart" fixed-sized vector of floats, is to encode a given text into such a vector and then to attempt to decode, or to reconstruct the text from the vector.
 We should optimize the distance between the original text and the decoded text. The distance should be minimized, hopefully zero. This idea is called "Auto Encoder".
@@ -111,7 +116,7 @@ How to define a distance between two texts, and what can be the procedure to mak
     <figcaption>Autoencoder - https://blog.keras.io/building-autoencoders-in-keras.html</figcaption>
 </figure>
 
-Another approach to learn from unlabelled texts is to "guess" what letter or word comes next. Again we turn the data itself into "labels". We do not need humans to annotate.
+Another approach to learn from unlabelled texts is to "guess" what letter or word comes next, or a **language model**. Again we turn the data itself into "labels". We do not need humans to annotate.
 
 ``` title="Using the (for free) order of the words in the given texts as the target"
 "The cat sat on the mat."
