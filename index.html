@@ -254,8 +254,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#a-few-observation-of-machine-learning-and-the-new-ways-to-build-systems" class="md-nav__link">
-    A few observation of machine learning and the new ways to build systems.
+  <a href="#a-few-observation-regarding-machine-learning-and-the-new-ways-to-build-intelligent-systems" class="md-nav__link">
+    A few observation regarding machine learning and the new ways to build intelligent systems.
   </a>
   
 </li>
@@ -329,8 +329,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#a-few-observation-of-machine-learning-and-the-new-ways-to-build-systems" class="md-nav__link">
-    A few observation of machine learning and the new ways to build systems.
+  <a href="#a-few-observation-regarding-machine-learning-and-the-new-ways-to-build-intelligent-systems" class="md-nav__link">
+    A few observation regarding machine learning and the new ways to build intelligent systems.
   </a>
   
 </li>
@@ -357,7 +357,7 @@
     <figcaption>Bombe machine (electro-mechanical)</figcaption>
 </figure>
 
-<p>Fast forward to these days, we tackle those with transistor-based digital computers, software, and <strong>algorithms</strong>. Algorithms were developed long before we had digital computers, read for example about Euclid's method for finding the greatest common divisor (GCD), described it in Elements (c. 300 BC).</p>
+<p>Fast forward to these days, we tackle those with transistor-based digital computers, software, and <strong>algorithms</strong>. Algorithms were developed long before we had digital computers. Refer for example about Euclid's method for finding the greatest common divisor (GCD), described it in Elements (c. 300 BC).</p>
 <div class="language-text highlight"><span class="filename">Euclid's method for finding the greatest common divisor (GCD)</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>function gcd(a, b)
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    while a ≠ b 
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>        if a &gt; b
@@ -456,7 +456,7 @@ How to define a distance between two texts, and what can be the procedure to mak
 </span></code></pre></div>
 <p>Using above idea, we can also try to learn a good vectorized encoding to words, and to texts.</p>
 <h3 id="reinforcement-learning">Reinforcement Learning</h3>
-<p>Here the task is to control, for example a robot, or a self-driving car. What does it mean to control? It means  to act and react to what happens in the environment, in a continues manner (or a sequence of discrete time steps). A “success” is judged by us when we “enjoy” watching the emerging behavior of the agent in the environment. For example, does the robot clean satisfactorily the floor, while avoid getting stuck midway, require our intervention, as of out-of-power, or so.</p>
+<p>Here the task is to control, for example a robot, or a self-driving car. What does it mean to control? It means  to act and react to what happens in the environment, in a continues manner (or a sequence of discrete time steps). A “success” is judged by us when we “enjoy” watching the emerging behavior of the agent in the environment. For example, does the robot clean satisfactorily the floor, while avoid getting stuck midway, requiring our intervention, as of out-of-power, or so.</p>
 <p>Again it is somewhat challenging to explain in software and rules exactly what we want there to happen, and again we’re looking for a way to achieve that with optimization instead. What shall we optimize, what is the “distance” to the target? What shall be the training procedure?
 We introduce the <strong>Markov Decision Process</strong> (MDP) framework. An MDP is an environment that our agent (model, system) can interact with. In addition to communicating the current state or observation of the environment to the agent, the agent shall also receive from the MDP reward in terms of some real number (where higher is better for example). We wind up in a setting where, the agent observes the current state, decides of the action to take, then the action is communicated to the MDP (the environment), that returns a new observation (state), and a reward.</p>
 <figure style="width:60%">
@@ -464,7 +464,7 @@ We introduce the <strong>Markov Decision Process</strong> (MDP) framework. An MD
     <figcaption>Reinforecement Learning Conceptual Model - Wikipedia</figcaption>
 </figure>
 
-<p>The optimization shall be to collect as much reward as possible (in an episode, or within some finite horizon). <span style="background: yellow">Therefore it is important to devise a reward mechanism that shall communicate to the agent what kind of behavior is the desired behavior.</span></p>
+<p>The optimization shall be to collect as much reward as possible (in an episode, or within some finite horizon). <span style="background: yellow">Therefore it is important to devise a reward mechanism that shall communicate what kind of behavior is desired from the agent.</span></p>
 <p>For example, we can encourage the agent to survive as much as possible by rewarding +1 on every time step where the agent is still active (assume that if the robot makes a fatal mistake it may fall to its “death”). If we want the agent to achieve something as fast as possible (find the way out of a maze for example), we can reward -1 on every time step.</p>
 <p>Above still does not answer what shall make the agent smarter and smarter, till it does what we would like it to do. The missing piece in the puzzle is that the agent shall interact with the environment multiple times, try different actions in different states, and adjust its policy towards a policy that brings it to collect the most reward.
 By optimizing the policy of the agent to one that results in hefty reward, we hope to achieve systems that can play Chess against us, drive us back and forward, terraform Mars, or act on our behalf as high-frequency traders.</p>
@@ -474,14 +474,14 @@ By optimizing the policy of the agent to one that results in hefty reward, we ho
     <figcaption>A point is a state (screen capture) and its color is the value that the agent associates with this state. https://www.deepmind.com/publications/human-level-control-through-deep-reinforcement-learning</figcaption>
 </figure>
 
-<h2 id="a-few-observation-of-machine-learning-and-the-new-ways-to-build-systems">A few observation of machine learning and the new ways to build systems.</h2>
+<h2 id="a-few-observation-regarding-machine-learning-and-the-new-ways-to-build-intelligent-systems">A few observation regarding machine learning and the new ways to build intelligent systems.</h2>
 <ul>
 <li>Systems that are more than a toy, will most likely contain multiple components, some developed with traditional software / algorithms, some are the results of ML training of this or another form.</li>
-<li>When we are faced with a challenge, even if we’ll be using ML, we should try to see where we can get with traditional algorithms / rules based system. This can at least be useful as a baseline, to try to “beat” it with ML. Traditional SW rules can help in guarding against extreme cases, or to be used as defaults when the ML model does not know the answer.</li>
-<li>When we use ML, we must take care of the data. Problems with the data, are the new “bugs”. Imagine a system to identify people and greet them with their name. What if it only works for white males? There are much horrible examples where this can go wrong. Familiarize yourself with Model Fairness, and Model Transparency. </li>
-<li>A system built with ML training will need access to the trained model. This is in addition to all other configuration, setup, architecture, and software that are needed to make use of the trained model. This is to say, that when you develop a system with software, you create a software package which needs to be installed / packaged, with ML you need to include also the learned “parameters” in the delivery. This introduces some challenges of maintenance, versioning, and accountability, matching the source code to the model and the data that was used for the training. Reproducibility is important.</li>
-<li>In some situations, we need to monitor for performance degradation over time, as the distribution of the data may change (imagine a pandemic etc.). For some systems we want a continues training, on new incoming data. We should probably monitor for performance degradation, and other surprises.</li>
-<li>We understand less good what our systems are doing when we use ML training, than when we used algorithms and software. Yes it was not easy also back then, we had to document, and test, we had to enforce good software development practices, debug thoroughly, yet we were in control. Today it is very hard to understand what exactly was learned, and when will the system fail-us as of something we did not think of. What are the limits of the system, after which the system will stop working as we expect? Familiarize yourself with XAI.</li>
+<li>When we are faced with a challenge, even if we’ll be using ML, we should try to see where we can get with traditional algorithms / rules based system. This can at least be useful as a <strong>baseline</strong>, to try to “beat” it with ML. Traditional SW rules can help in guarding against extreme cases, or to be used as defaults when the ML model does not know the answer.</li>
+<li>When we use ML, we must take care of the data. Problems with the data, are the new “bugs”. Imagine a system to identify people and greet them with their name. What if it only works for white males? There are much worse horrible examples where this can go wrong. Familiarize yourself with <strong>Model Fairness</strong>, and <strong>Model Transparency</strong>. </li>
+<li>A system built with ML training will need access to the trained model. This is in addition to all other configuration, setup, architecture, and software that are needed to make use of the trained model. This is to say, that when you develop a system with software, you create a software package which needs to be installed / copied to the deployment. With ML you need to include also the learned “parameters” in the delivery. This introduces some challenges of maintenance, versioning, and accountability, matching the source code to the model and the data that was used for the training. Reproducibility is important.</li>
+<li>In most situations, we need to <strong>monitor</strong> for performance degradation over time, as the distribution of the data may change (broken sensor, change in taste, a pandemic, etc.). For some systems we want a continues training, on new incoming data. We should probably monitor for performance degradation, and other surprises.</li>
+<li>We understand less good what our systems are doing when we use ML training, than when we used algorithms and software. Yes it was not easy also back then, we had to document, and test, we had to enforce good software development practices, debug thoroughly, yet we were in control. Today it is very hard to understand what exactly was learned, and when will the system fail-us as of something we did not think of. What are the limits of the system, after which the system will stop working as we expect? Familiarize yourself with <strong>XAI</strong> (explainable ai).</li>
 </ul>
 
 
